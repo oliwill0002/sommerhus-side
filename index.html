@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Forside{% endblock %}
+
+{% block content %}
+<section class="hero hero-home">
+    <div class="hero-copy">
+        <p class="eyebrow">Skåne, svensk sommer og tid sammen</p>
+        <h2>En lille feriebase tæt på strand, skov og hyggelige udflugter</h2>
+        <p class="hero-text">Green Cottage i Munka-Ljungby er rammen om en rolig ferie med terrassemorgenmad, ture i området og plads til bare at lande lidt.</p>
+        <div class="hero-actions">
+            <a class="button" href="/sommerhus">Se sommerhuset</a>
+            <a class="button button-secondary" href="/aktiviteter">Find ferieidéer</a>
+        </div>
+    </div>
+
+    <div class="hero-panel">
+        <div class="hero-panel-card">
+            <span>Stemning</span>
+            <strong>Lyst, roligt og tæt på natur</strong>
+        </div>
+        <div class="hero-panel-card">
+            <span>Perfekt til</span>
+            <strong>Små ture, badedage og hyggelige aftener</strong>
+        </div>
+        <div class="hero-panel-card">
+            <span>Base</span>
+            <strong>Nybygget hytte med privat terrasse</strong>
+        </div>
+    </div>
+</section>
+
+<section class="intro-strip">
+    <div class="intro-card">
+        <p class="intro-label">Hvorfor stedet føles særligt</p>
+        <p>Der er noget meget rart over kombinationen af det lyse træhus, den afskærmede indgang og de rolige omgivelser. Det føles som et sted, hvor tempoet automatisk falder.</p>
+    </div>
+    <div class="mini-gallery">
+        <img src="/static/images/sommerhus.jpg" alt="Terrasse ved sommerhuset">
+        <img src="/static/images/sommerhus2.jpg" alt="Lyst opholdsrum med køjeseng">
+        <img src="/static/images/sommerhus3.jpg" alt="Indgang til sommerhuset bag grøn beplantning">
+    </div>
+</section>
+
+<section class="section-heading">
+    <p class="eyebrow">Tre veje ind i ferien</p>
+    <h3>Udforsk huset, nærområdet og idéer til dagene</h3>
+</section>
+
+<section class="card-grid">
+    <a class="card card-bg" href="/sommerhus" style="background-image: url('/static/images/sommerhus.jpg');">
+        <div class="card-overlay">
+            <h3>Sommerhuset</h3>
+            <p>Faciliteter, stemning og flere kig ind i Green Cottage.</p>
+        </div>
+    </a>
+
+    <a class="card card-bg" href="/omrade" style="background-image: url('/static/images/sommerhus6.jpg');">
+        <div class="card-overlay">
+            <h3>Området</h3>
+            <p>Strand, vandfald, små stop og praktiske ting tæt på huset.</p>
+        </div>
+    </a>
+
+    <a class="card card-bg" href="/aktiviteter" style="background-image: url('/static/images/sommerhus7.jpg');">
+        <div class="card-overlay">
+            <h3>Aktiviteter</h3>
+            <p>Fra terrassehygge til elgsafari, badeture og loppemarkeder.</p>
+        </div>
+    </a>
+</section>
+
+<section class="feature-band">
+    <div class="feature-band-image">
+        <img src="/static/images/sommerhus5.jpg" alt="Kyst og badebro ved havet">
+    </div>
+    <div class="feature-band-copy">
+        <p class="eyebrow">Ferie med variation</p>
+        <h3>Det ene øjeblik stille havudsigt, det næste en lille oplevelse på vejen</h3>
+        <p>Det bedste ved sådan en tur er ofte blandingen: en langsom morgen i huset, en udflugt til vand eller natur og måske en butik eller café på hjemvejen. Siden her samler det hele ét sted.</p>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sommerhusferie{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header class="topbar">
+        <div class="container nav-container">
+            <a class="logo" href="/">Green Cottage</a>
+            <nav>
+    <a href="/">Forside</a>
+    <a href="/sommerhus">Sommerhuset</a>
+    <a href="/omrade">Området</a>
+    <a href="/aktiviteter">Aktiviteter</a>
+    <a href="/budget">Budget</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>En lille ferieside til planlægning, inspiration og sommerhushygge i Skåne.</p>
+        </div>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+    <footer class="footer">
+    Sidst opdateret: {{ last_updated }}
+</footer>
+</body>
+</html>

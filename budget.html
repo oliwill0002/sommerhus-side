@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Budget{% endblock %}
+
+{% block content %}
+<section class="page-box">
+    <h2>Budget</h2>
+    <p>Her er et overblik over vores forventede udgifter til ferien.</p>
+
+    <table class="budget-table">
+        <thead>
+            <tr>
+                <th>Post</th>
+                <th>Pris</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Sommerhus</td>
+                <td>5.000 kr.</td>
+            </tr>
+            <tr>
+                <td>Benzin / transport</td>
+                <td>1.200 kr.</td>
+            </tr>
+            <tr>
+                <td>Mad og indkøb</td>
+                <td>1.500 kr.</td>
+            </tr>
+            <tr>
+                <td>Aktiviteter</td>
+                <td>800 kr.</td>
+            </tr>
+            <tr>
+                <td>Diverse</td>
+                <td>500 kr.</td>
+            </tr>
+            <tr class="total-row">
+                <td>Samlet budget</td>
+                <td>9.000 kr.</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+{% endblock %}

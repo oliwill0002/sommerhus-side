@@ -1,1 +1,139 @@
+{% extends "base.html" %}
 
+{% block title %}Aktiviteter{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="page-hero-copy">
+        <p class="eyebrow">Aktiviteter</p>
+        <h2>Ferieidéer der passer til både rolige dage og små oplevelser</h2>
+        <p>Nogle dage kalder på strand og udflugt, andre på kaffe på terrassen og en stille gåtur. Her er en samling idéer, I kan bladre igennem.</p>
+    </div>
+    <div class="page-hero-image">
+        <img src="/static/images/sommerhus7.jpg" alt="Elg tæt på under safari">
+    </div>
+</section>
+
+<section class="page-box">
+    <div class="activity-slider">
+        <div class="image-wrapper">
+            <img id="activity-image" src="/static/images/sommerhus.jpg" alt="Terrasse ved sommerhuset">
+            <button class="slider-btn left" type="button" onclick="previousSlide()" aria-label="Forrige aktivitet"></button>
+            <button class="slider-btn right" type="button" onclick="nextSlide()" aria-label="Næste aktivitet"></button>
+        </div>
+
+        <div class="activity-meta">
+            <div class="activity-text">
+                <p class="spotlight-label" id="activity-tag">Rolig dag</p>
+                <h3 id="activity-title">Hygge på terrassen</h3>
+                <p id="activity-description">Nyd morgenkaffe eller aftensmad ude på terrassen og slap af i rolige omgivelser.</p>
+            </div>
+
+            <div class="activity-thumbs" id="activity-thumbs"></div>
+        </div>
+    </div>
+</section>
+
+<section class="ideas-grid">
+    <article class="idea-card">
+        <h3>Kombinér ude og hjemme</h3>
+        <p>Den bedste feriedag behøver ikke være pakket. En kort tur ud og en rolig aften ved huset er ofte den helt rigtige rytme.</p>
+    </article>
+    <article class="idea-card">
+        <h3>Vælg efter vejret</h3>
+        <p>Strand og gåture fungerer på de klare dage, mens butikker, caféer og loppemarkeder er gode, når tempoet skal være lidt mere afslappet.</p>
+    </article>
+    <article class="idea-card">
+        <h3>Lad billederne guide jer</h3>
+        <p>Aktiviteterne her tager udgangspunkt i steder og stemninger, der allerede ser ud til at passe godt til området og til den type ferie huset lægger op til.</p>
+    </article>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const activities = [
+    {
+        image: "/static/images/sommerhus.jpg",
+        tag: "Rolig dag",
+        title: "Hygge på terrassen",
+        description: "Nyd morgenkaffe eller aftensmad ude på terrassen og slap af i rolige omgivelser."
+    },
+    {
+        image: "/static/images/sommerhus7.jpg",
+        tag: "Udflugt",
+        title: "Elg safari",
+        description: "Tag på elgsafari og oplev de store dyr tæt på i den svenske natur."
+    },
+    {
+        image: "/static/images/sommerhus6.jpg",
+        tag: "Kysttur",
+        title: "Stranden",
+        description: "Besøg stranden for at bade, gå en tur i sandet eller bare nyde udsigten og vinden fra havet."
+    },
+    {
+        image: "/static/images/sommerhus9.jpg",
+        tag: "Bytur",
+        title: "Shopping",
+        description: "Tag på shoppingtur og kig i butikker, caféer og små hyggelige steder."
+    },
+    {
+        image: "/static/images/sommerhus10.jpg",
+        tag: "Marked",
+        title: "Loppemarked",
+        description: "Gå på loppemarked og find spændende ting og små lokale skatte."
+    },
+    {
+        image: "/static/images/sommerhus4.jpg",
+        tag: "Natur",
+        title: "Vandfald og grønt",
+        description: "Tag på en lille naturudflugt og få en anden type oplevelse med vand, skov og frisk luft."
+    },
+    {
+        image: "/static/images/sommerhus8.jpg",
+        tag: "Aftenstemning",
+        title: "Gå tur",
+        description: "Tag en rolig gåtur i området og nyd naturen omkring sommerhuset."
+    }
+];
+
+let currentIndex = 0;
+
+function showSlide(index) {
+    document.getElementById("activity-image").src = activities[index].image;
+    document.getElementById("activity-tag").textContent = activities[index].tag;
+    document.getElementById("activity-title").textContent = activities[index].title;
+    document.getElementById("activity-description").textContent = activities[index].description;
+
+    document.querySelectorAll(".thumb-btn").forEach((button, buttonIndex) => {
+        button.classList.toggle("is-active", buttonIndex === index);
+    });
+}
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % activities.length;
+    showSlide(currentIndex);
+}
+
+function previousSlide() {
+    currentIndex = (currentIndex - 1 + activities.length) % activities.length;
+    showSlide(currentIndex);
+}
+
+const thumbContainer = document.getElementById("activity-thumbs");
+
+activities.forEach((activity, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "thumb-btn";
+    button.textContent = activity.title;
+    button.addEventListener("click", () => {
+        currentIndex = index;
+        showSlide(currentIndex);
+    });
+    thumbContainer.appendChild(button);
+});
+
+showSlide(currentIndex);
+</script>
+{% endblock %}
